@@ -11,4 +11,4 @@ He decidido realizar este microservicio por la intima relación que poseo desde 
 - El lenguaje de programación que voy a utilizar es python.
 - El framework que utilizaré es flask.
 - Los tests los realizaré con la biblioteca unittest.
-- Base de datos para actualizar los cambios en el nivel de existencias de mercancías (STOCK).
+- La base de datos que utilizaré es MariaDB (ya usada en otras asignaturas) para actualizar los cambios en el nivel de existencias de mercancías (STOCK).
