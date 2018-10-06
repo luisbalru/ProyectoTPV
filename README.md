@@ -1,4 +1,5 @@
 # Proyecto IV
+[![Build Status](https://travis-ci.org/joseviro/ProyectoTPV.svg?branch=master)](https://travis-ci.org/joseviro/ProyectoTPV)
 ## Terminal punto de venta (TPV)
 Repositorio creado para el proyecto (**personal**) de la asignatura Infraestructura Virtual de 4º del Grado de Ingeniería Informática (UGR - TIC).
 
