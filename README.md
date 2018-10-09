@@ -15,3 +15,18 @@ He decidido realizar este microservicio por la intima relación que poseo desde 
 - El framework que utilizaré es flask.
 - Los tests los realizaré con la biblioteca unittest.
 - La base de datos que utilizaré es MariaDB (ya usada en otras asignaturas) para actualizar los cambios en el nivel de existencias de mercancías (STOCK).
+
+## Instalando lo necesario
+pip install -r requirements.txt
+
+## Para ejecutar los tests
+pytest
+
+## Para ejecutar
+python3 pruebas.py
+
+## Uso
+El uso de estos métodos es para llevar a cabo el control de las mesas, cuentas, stock y ganancias diarias del restaurante o bar en cuestión. 
+
+## Por qué he elegido estas herramientas de test e integración continua:
+[Aquí](https://github.com/joseviro/ProyectoTPV/blob/master/docs/explicacionElecciones.md)
