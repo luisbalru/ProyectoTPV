@@ -1,0 +1,18 @@
+[{
+  "bebidas":5,
+  "raciones":10,
+  "pan":1
+},
+{
+  "bebidas":2,
+  "raciones":2,
+  "pan":0
+},{
+  "bebidas":7,
+  "raciones":8,
+  "pan":0
+},{
+  "bebidas":8,
+  "raciones":2,
+  "pan":1
+}]
