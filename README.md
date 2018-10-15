@@ -29,4 +29,4 @@ python3 pruebas.py
 El uso de estos métodos es para llevar a cabo el control de las mesas, cuentas, stock y ganancias diarias del restaurante o bar en cuestión. 
 
 ## Por qué he elegido estas herramientas de test e integración continua:
-[Aquí](https://joseviro.github.io/ProyectoTPV/blob/master/docs/explicacionElecciones)
+[Aquí](https://joseviro.github.io/ProyectoTPV/docs/explicacionElecciones)
