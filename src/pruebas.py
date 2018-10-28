@@ -23,14 +23,20 @@ class TPV():
             if os.path.exists('data/stock.json'):
                 with open('data/stock.json', 'r') as f:
                     self.stock = json.load(f)
+            if os.path.exists('data/ganancias.json'):
+                with open('data/ganancias.json', 'r') as f:
+                    self.ganancias = json.load(f)
             else:
                 raise IOError("No se encuentra 'stock.json'")
 
         except IOError as fallo:
-             print("Error {} leyendo hitos.json".format( fallo ) )
+             print("Error {} leyendo *.json".format( fallo ) )
 
-    def CuentasMesas(self):
+    def CuantasMesas(self):
         return len(self.mesas)
+
+    def GetMesas(self):
+        return json.dumps(self.mesas)
 
     #Reduce la cantidad de stock disponible
     def ReducirStock(self,nMesa):
@@ -52,19 +58,24 @@ class TPV():
         else:
             return False
 
-    #Añadir a la cuenta los nuevos pedidos
+    #Añadir a la cuenta los nuevos pedidos, no se añaden mesas, las mesas
+    #son las que hay, si están a 0 todos paramatros es que estan vacias
     def Apuntar(self,nMesa,bebidas=None,raciones=None,pan=None):
+        if nMesa >= self.CuantasMesas(): return False
         if bebidas:
+            if type(bebidas) != int: return False
             if (self.stock["bebidas"]-bebidas) < 0:
                 return False
             else:
                 self.mesas[nMesa]["bebidas"] += bebidas
         if raciones:
+            if type(raciones) != int: return False
             if (self.stock["raciones"]-raciones) < 0:
                 return False
             else:
                 self.mesas[nMesa]["raciones"] += raciones
         if pan:
+            if type(pan) != int: return False
             if (self.stock["pan"]-pan) < 0:
                 return False
             else:
@@ -74,7 +85,7 @@ class TPV():
 
     def ReponerStock(self,pan=0,raciones=0,bebidas=0):
         #suponiendo que no se gastan todas, se añaden a las que quedan
-        if pan > 0 and raciones > 0 and bebidas > 0:
+        if pan >= 0 and raciones >= 0 and bebidas >= 0:
             self.stock["bebidas"] += bebidas
             self.stock["raciones"] += raciones
             self.stock["pan"] += pan
@@ -130,21 +141,24 @@ class TPV():
             if esTarjeta:
                 if self.ValidarTarjeta(entidad,oficina,dc,cuenta):
                     self.__gananciasDia += total
-                    return True
+                    return total
                 else:
                     print("Numero de tarjeta incorrecto")
                     return False
             else: #efectivo
                 self.__gananciasDia += total
-                return True
+                return total
         else:
             return False
 
     #devuelve las ganancias del dia y restaura el valor de las ganancias
     def HacerCaja(self):
         fecha = time.strftime("%d/%m/%Y")
-        with open('data/ganancias.json','r') as f:
-            ganancias = json.load(f)
-        ganancias.append({"fecha":fecha,"ganancias":self.__gananciasDia})
+        #si la ultima fecha es la misma que la actual quiere decir que seguimos en
+        #el mismo día por lo que sumamos las ganancias, no creamos un nuevo indice
+        if fecha == self.ganancias[len(self.ganancias)-1]["fecha"]:
+            self.ganancias[len(self.ganancias)-1]["ganancias"] += self.__gananciasDia
+        else:
+            self.ganancias.append({"fecha":fecha,"ganancias":self.__gananciasDia})
         self.__gananciasDia = 0
-        return ganancias[len(ganancias)-1]["ganancias"]
+        return self.ganancias[len(self.ganancias)-1]["ganancias"]
