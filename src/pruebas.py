@@ -36,7 +36,7 @@ class TPV():
         return len(self.mesas)
 
     def GetMesas(self):
-        return json.dumps(self.mesas)
+        return self.mesas
 
     #Reduce la cantidad de stock disponible
     def ReducirStock(self,nMesa):

@@ -12,7 +12,7 @@ def test_inicializar_correcto():
     assert isinstance(tpv, TPV), "No se ha podido inicializar"
 
 def test_devuelve_mesas():
-    assert type(tpv.GetMesas())== str, "No se han devuelto correctamente los valores"
+    assert type(tpv.GetMesas())== list, "No se han devuelto correctamente los valores"
 
 def test_numero_correcto_mesas():
     assert tpv.CuantasMesas()==4, "Error en el numero de mesas"

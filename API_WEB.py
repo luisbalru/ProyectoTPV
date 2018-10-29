@@ -1,10 +1,12 @@
-from flask import Flask,jsonify,request
+from flask import Flask,jsonify,request,Response
 import sys,os.path
+from flask.json import JSONEncoder
 sys.path.append("src/")
 from pruebas import TPV
 
 app = Flask(__name__) #creamos la instancia
-
+#embellecedor de JSON desactivado por defecto 
+app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 tpv = TPV()
 
 @app.route("/")
@@ -37,9 +39,12 @@ def main():
     }
     }
     })
+
+    #return Response(response=ret,status=200,mimetype="application/json")
+
 @app.route("/getMesas")
 def GetMesa():
-    return tpv.GetMesas()
+    return jsonify(tpv.GetMesas())
 
 
 @app.route("/cuantasMesas")
