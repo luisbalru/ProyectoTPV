@@ -26,7 +26,7 @@ pytest
 python3 pruebas.py
 
 ## Uso
-El uso de estos métodos es para llevar a cabo el control de las mesas, cuentas, stock y ganancias diarias del restaurante o bar en cuestión. 
+El uso de estos métodos es para llevar a cabo el control de las mesas, cuentas, stock y ganancias diarias del restaurante o bar en cuestión.
 
 ## Por qué he elegido estas herramientas de test e integración continua:
 [Aquí](https://joseviro.github.io/ProyectoTPV/docs/explicacionElecciones)
@@ -35,4 +35,5 @@ El uso de estos métodos es para llevar a cabo el control de las mesas, cuentas,
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 He elegido heroku porque es gratuito y la documentación que aporta es muy intuitiva.
-**despliegue** : [proyectoTPV](https://stark-hollows-36939.herokuapp.com)
+
+**despliegue** : [proyectoTPV](https://proyecto-tpv.herokuapp.com/)
