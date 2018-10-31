@@ -37,3 +37,5 @@ El uso de estos métodos es para llevar a cabo el control de las mesas, cuentas,
 He elegido heroku porque es gratuito y la documentación que aporta es muy intuitiva.
 
 **despliegue** : [proyectoTPV](https://proyecto-tpv.herokuapp.com/)
+
+Documentación sobre [heroku](https://github.com/joseviro/ProyectoTPV/blob/master/docs/heroku.md)
