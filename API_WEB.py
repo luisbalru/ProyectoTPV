@@ -5,14 +5,14 @@ sys.path.append("src/")
 from pruebas import TPV
 
 app = Flask(__name__) #creamos la instancia
-#embellecedor de JSON desactivado por defecto 
+#embellecedor de JSON desactivado por defecto
 app.config['JSONIFY_PRETTYPRINT_REGULAR'] = True
 tpv = TPV()
 
 @app.route("/")
 def main():
     return jsonify({
-    "Status": "OK",
+    "status": "OK",
     "ejemplos de Servicios":{
     "GetMesas":{
         "ruta":"/getMesas",
