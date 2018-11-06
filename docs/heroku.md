@@ -65,11 +65,11 @@ El archivo Proc es siempre un archivo de texto simple que se nombra Procfile sin
 
 Formato del archivo:
 
-<process type>: <command>
+process type: command
 
-<process type>es un nombre alfanumérico para su comando, como web, worker, urgentworker, clock, release...
+process type -> es un nombre alfanumérico para su comando, como web, worker, urgentworker, clock, release...
 
-<command> tipo de proceso debe ejecutar en el inicio
+command -> tipo de proceso debe ejecutar en el inicio
 
 Ejemplo:
 
