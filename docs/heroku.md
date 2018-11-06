@@ -56,3 +56,31 @@ $ heroku apps:destroy
 heroku logs --tail
 
 -----------------------------------
+## Procfile
+El motivo para usar un Procfile es para declarar explícitamente qué comando debe ejecutarse para iniciar su aplicación.
+
+El Procfile debe residir en el directorio raíz de su aplicación. No funciona si se coloca en otro lugar.
+
+El archivo Proc es siempre un archivo de texto simple que se nombra Procfile sin una extensión de archivo . *Por ejemplo, Procfile.txt no es válido.*
+
+Formato del archivo:
+
+<process type>: <command>
+
+<process type>es un nombre alfanumérico para su comando, como web, worker, urgentworker, clock, release...
+
+<command> tipo de proceso debe ejecutar en el inicio
+
+Ejemplo:
+
+web: <instrucción shell> -> web: python app.py ó cd src && python app.py
+
+Le está diciendo a heroku que cuando realice el proceso web debe realizar el comando establecido.
+
+
+### PROBLEMA
+Los marcos web de Django y Flask cuentan con servidores web incorporados convenientes, pero estos servidores de bloqueo solo procesan una sola solicitud a la vez. Si implementa con uno de estos servidores en Heroku, sus recursos dinámicos serán subutilizados y su aplicación no se responderá.
+
+**Solución**: Gunicorn: Nos permite servir nuestra aplicación Flask con múltiples workers para incrementar el rendimiento de nuestra aplicación.
+
+web: gunicorn <nombre_del_archivo_python sin extension>:app --log-file -
