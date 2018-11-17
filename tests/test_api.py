@@ -41,8 +41,6 @@ def setUpModule():
 	with open(MESAS, 'r') as f:
 		auxiliar_mesas = json.loads(f.read())
 
-	with open(CAJA, 'r') as p:
-		auxiliar_caja = json.loads(f.read())
 
 if __name__ == '__main__':
 	unittest.main()
